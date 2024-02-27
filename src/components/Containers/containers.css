@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.links img {
+    width: 75px;
+}
+
+.container {
+  position: sticky;
+  margin: 20 px;
+  background: #ffffff;
+  border-radius: 6px;
+  font-size: small;
+}
+
+.container .row{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 20px;
+}
+
+.row .col h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.col .links {
+  margin-top: 20px;
+}
+
+.col .links li {
+  list-style: none;
+  margin-bottom: 10px;
+}
+
+.col .links li a {
+  text-decoration: none;
+  color: #bfbfbf;
+  font-weight: bold;
+}
+
+.col .links li a:hover {
+  color: #fff;
+}
+
+.col p {
+  margin: 20px 0;
+  color: #bfbfbf;
+  max-width: 300px;
+}
+
+.col form {
+  display: flex;
+  gap: 5px;
+}
+
+.col input {
+  height: 40px;
+  border-radius: 6px;
+  background: none;
+  width: 100%;
+  outline: none;
+  border: 1px solid #7489C6 ;
+  caret-color: #fff;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.col input::placeholder {
+  color: #ccc;
+}
+
+ .col form button {
+  background: #fff;
+  outline: none;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.col form button:hover {
+  background: #cecccc;
+}
+
+.col .icons {
+  display: flex;
+  margin-top: 30px;
+  gap: 30px;
+  cursor: pointer;
+}
+
+.col .icons i {
+  color: #afb6c7;
+}
+
+.col .icons i:hover  {
+  color: #fff;
+}
+
+#title {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .container {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .container .row {
+    padding: 20px;
+    gap: 1rem;
+  }
+
+  .col form {
+    display: block;
+  }
+
+  .col form :where(input, button) {
+    width: 100%;
+  }
+
+  .col form button {
+    margin: 10px 0 0 0;
+  }
+}
