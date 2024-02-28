@@ -2,6 +2,7 @@ import "./filterpanel.css";
 import Select from "react-select";
 import { useEffect, useState } from "react";
 
+
 const sortOptions = [
   { value: "hightolow", label: "Price: High to Low" },
   { value: "lowtohigh", label: "Price: Low to High" }
@@ -12,6 +13,7 @@ const genderFilterOptions = [
   { value: "male", label: "Male" },
   { value: "female", label: "Female" }
 ];
+
 
 const sizeFilterOptions = [
   { value: "S", label: "S" },
@@ -26,6 +28,7 @@ const brandFilterOptions = [
   { value: "C", label: "C" },
   { value: "D", label: "D" }
 ];
+
 
 const FilterPanel = ({ products, setProducts }) => {
   const [allProducts, setAllProducts] = useState(() => products);
@@ -79,7 +82,7 @@ const FilterPanel = ({ products, setProducts }) => {
         option.value === "B" ||
         option.value === "C" ||
         option.value === "D"
-      ) {
+      )  {
         const filtered = [...products].filter((product) => {
           console.log(product.brand === option.value);
           return product.brand === option.value;
@@ -91,7 +94,7 @@ const FilterPanel = ({ products, setProducts }) => {
     if (selectedOption) {
       handleFilter(selectedOption);
     }
-  }, [selectedOption, setProducts]);
+  },  [selectedOption, setProducts]);
 
   useEffect(() => {
     if (filtered) {
