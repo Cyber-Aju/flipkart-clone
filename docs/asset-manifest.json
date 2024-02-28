@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/gh-pages/static/css/main.cae7bf60.css",
+    "main.js": "/gh-pages/static/js/main.82e769ff.js",
+    "static/media/fashion.png": "/gh-pages/static/media/fashion.aa51abe9e63b382f61ba.png",
+    "static/media/grocery.png": "/gh-pages/static/media/grocery.5ac92ee33ac02e92a261.png",
+    "static/media/toys.png": "/gh-pages/static/media/toys.7ab6f5c16d452e646abe.png",
+    "static/media/logo.png": "/gh-pages/static/media/logo.20f9696c2fd6a05e602d.png",
+    "static/media/appliance.png": "/gh-pages/static/media/appliance.2dfbee413c0c4dbd1402.png",
+    "static/media/home.png": "/gh-pages/static/media/home.0ad50cc06dcecaf71a30.png",
+    "static/media/twowheeler.png": "/gh-pages/static/media/twowheeler.27a362bf59c6d83e2ba0.png",
+    "static/media/electronics.png": "/gh-pages/static/media/electronics.cc99899d4526acf98b99.png",
+    "index.html": "/gh-pages/index.html",
+    "main.cae7bf60.css.map": "/gh-pages/static/css/main.cae7bf60.css.map",
+    "main.82e769ff.js.map": "/gh-pages/static/js/main.82e769ff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cae7bf60.css",
+    "static/js/main.82e769ff.js"
+  ]
+}
