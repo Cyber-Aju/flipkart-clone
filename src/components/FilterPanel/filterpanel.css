@@ -7,7 +7,7 @@
   margin: 0 10px;
 }
 
-.label {
+.label { 
   margin: 10px 0;
 }
 
@@ -15,6 +15,7 @@
   margin: 15px auto;
   text-align: center;
 }
+
 
 .reset button {
   padding: 10px;
