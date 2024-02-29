@@ -25,6 +25,7 @@ const Navbar = () => {
               <path d="m6.486 10.901c-2.42 0-4.381-1.956-4.381-4.368 0-2.413 1.961-4.369 4.381-4.369 2.42 0 4.381 1.956 4.381 4.369 0 2.413-1.961 4.368-4.381 4.368m0-10.835c-3.582 0-6.486 2.895-6.486 6.467 0 3.572 2.904 6.467 6.486 6.467 3.582 0 6.486-2.895 6.486-6.467 0-3.572-2.904-6.467-6.486-6.467"></path>
             </g>
           </svg>
+          
         </div>
 
         <div className="navbar-items">
@@ -43,10 +44,10 @@ const Navbar = () => {
       ></path>
     </svg>
     <ul className="dropdown-content">
-      <li><a href="">Orders</a></li>
-      <li><a href="">Wishlist</a></li>
-      <li><a href="">Rewards</a></li>
-      <li><a href="">Gift Cards</a></li>
+      <li><a href="#top">Orders</a></li>
+      <li><a href="#top">Wishlist</a></li>
+      <li><a href="#top">Rewards</a></li>
+      <li><a href="#top">Gift Cards</a></li>
     </ul>
   </div>
 

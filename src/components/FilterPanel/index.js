@@ -2,7 +2,6 @@ import "./filterpanel.css";
 import Select from "react-select";
 import { useEffect, useState } from "react";
 
-
 const sortOptions = [
   { value: "hightolow", label: "Price: High to Low" },
   { value: "lowtohigh", label: "Price: Low to High" }
@@ -13,7 +12,6 @@ const genderFilterOptions = [
   { value: "male", label: "Male" },
   { value: "female", label: "Female" }
 ];
-
 
 const sizeFilterOptions = [
   { value: "S", label: "S" },
@@ -29,78 +27,68 @@ const brandFilterOptions = [
   { value: "D", label: "D" }
 ];
 
-
 const FilterPanel = ({ products, setProducts }) => {
-  const [allProducts, setAllProducts] = useState(() => products);
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [filtered, setFiltered] = useState(null);
+  // Use a single state variable for filtered products
+  const [filteredProducts, setFilteredProducts] = useState(products);
 
   const handleChange = (option) => {
-    setSelectedOption(option);
-  };
+    if (!option) {
+      // Handle clearing the selection (resetting to original data)
+      setFilteredProducts(products);
+      return;
+    }
 
-  const handleReset = () => {
-    setProducts(allProducts);
-  };
-
-  useEffect(() => {
-    const handleFilter = (option) => {
-      if (option.value === "lowtohigh") {
-        const filtered = [...products].sort((a, b) => {
-          return a.price - b.price;
-        });
-        setFiltered(filtered);
-      } else if (option.value === "hightolow") {
-        const filtered = [...products].sort((a, b) => {
-          return b.price - a.price;
-        });
-        setFiltered(filtered);
-      } else if (option.value === "male") {
-        const filtered = [...allProducts].filter(
+    const handleFilter = (filterValue) => {
+      if (filterValue === "lowtohigh") {
+        const filtered = [...products].sort((a, b) => a.price - b.price);
+        setFilteredProducts(filtered);
+      } else if (filterValue === "hightolow") {
+        const filtered = [...products].sort((a, b) => b.price - a.price);
+        setFilteredProducts(filtered);
+      } else if (filterValue === "male") {
+        const filtered = products.filter(
           (product) => product.category.toLowerCase() === "men's clothing"
         );
-        setFiltered(filtered);
-      } else if (option.value === "female") {
-        const filtered = [...allProducts].filter(
+        setFilteredProducts(filtered);
+      } else if (filterValue === "female") {
+        const filtered = products.filter(
           (product) => product.category.toLowerCase() === "women's clothing"
         );
-        setFiltered(filtered);
-      } else if (option.value === "both") {
-        setFiltered(allProducts);
+        setFilteredProducts(filtered);
+      } else if (filterValue === "both") {
+        // No filtering needed for "both" option
       } else if (
-        option.value === "S" ||
-        option.value === "M" ||
-        option.value === "L" ||
-        option.value === "XL"
+        filterValue === "S" ||
+        filterValue === "M" ||
+        filterValue === "L" ||
+        filterValue === "XL"
       ) {
-        const filtered = [...allProducts].filter((product) =>
-          product.size.includes(option.value)
+        const filtered = products.filter((product) =>
+          product.size.includes(filterValue)
         );
-        setFiltered(filtered);
+        setFilteredProducts(filtered);
       } else if (
-        option.value === "A" ||
-        option.value === "B" ||
-        option.value === "C" ||
-        option.value === "D"
-      )  {
-        const filtered = [...products].filter((product) => {
-          console.log(product.brand === option.value);
-          return product.brand === option.value;
-        });
-        setFiltered(filtered);
+        filterValue === "A" ||
+        filterValue === "B" ||
+        filterValue === "C" ||
+        filterValue === "D"
+      ) {
+        const filtered = products.filter((product) => product.brand === filterValue);
+        setFilteredProducts(filtered);
       }
     };
 
-    if (selectedOption) {
-      handleFilter(selectedOption);
-    }
-  },  [selectedOption, setProducts]);
+    handleFilter(option.value);
+  };
 
+  const handleReset = () => {
+    setFilteredProducts(products);
+  };
+
+  // Use a single `useEffect` with all dependencies
   useEffect(() => {
-    if (filtered) {
-      setProducts(filtered);
-    }
-  }, [filtered, setProducts]);
+    setProducts(filteredProducts); // Update parent component's data
+  }, [filteredProducts, setProducts]);
 
   return (
     <div className="filter-panel">
